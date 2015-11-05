@@ -138,28 +138,27 @@
     return YES;
 }
 
-+ (BOOL) fileExistsAtPath:(NSString *)path
++ (BOOL)fileExistsAtPath:(NSString *)path
 {
     return [[NSFileManager defaultManager] fileExistsAtPath:path];
 }
 
-+ (BOOL) fileExistsAtPathURL:(NSURL *)path
++ (BOOL)fileExistsAtPathURL:(NSURL *)path
 {
     return [self fileExistsAtPath:[path path]];
 }
 
-+ (BOOL) directoryExistsAtPath:(NSString *)path;
++ (BOOL)directoryExistsAtPath:(NSString *)path;
 {
     BOOL isDir;
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    if([fileManager fileExistsAtPath:path isDirectory:&isDir] && isDir)
-    {
+    if ([fileManager fileExistsAtPath:path isDirectory:&isDir] && isDir) {
         return YES;
     }
     return NO;
 }
 
-+ (BOOL) createDirectoryAtPath:(NSString *)path
++ (BOOL)createDirectoryAtPath:(NSString *)path
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *fileError = nil;
@@ -208,12 +207,11 @@
     return [path lastPathComponent];
 }
 
-+ (NSString*)encodeString:(NSString *)string
++ (NSString *)encodeString:(NSString *)string
 {
-    NSString *newString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)string, NULL, CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+    NSString *newString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)string, CFSTR("çÇãÃõÕáÁéÉíÍóÓúÚàÀèÈìÌòÒùÙâÂêÊîÎôÔûÛ"), CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
     
-    if (newString)
-    {
+    if (newString) {
         return newString;
     }
     
