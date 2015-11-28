@@ -18,7 +18,7 @@
     return cacheDirectory;
 }
 
-+ (NSString *) documentDirectoryPath
++ (NSString *)documentDirectoryPath
 {
     NSArray *docArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDirectory = [docArray lastObject];
@@ -31,24 +31,24 @@
     return [NSURL fileURLWithPath:[self documentDirectoryPath]];
 }
 
-+ (NSString *) bundlePath
++ (NSString *)bundlePath
 {
     NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
     return bundlePath;
 }
 
-+ (NSString *) resourcePath
++ (NSString *)resourcePath
 {
     NSString *resourcePath = [[NSBundle mainBundle] resourcePath];
     return resourcePath;
 }
 
-+ (NSURL *) resourcePathURL
++ (NSURL *)resourcePathURL
 {
     return [NSURL fileURLWithPath:[self resourcePath]];
 }
 
-+ (NSString *) temporaryPath
++ (NSString *)temporaryPath
 {
     NSString *tempDirectory = NSTemporaryDirectory();
     return tempDirectory;
@@ -59,7 +59,7 @@
     return [NSURL fileURLWithPath:[self temporaryPath]];
 }
 
-+ (BOOL) createEmptyFileAtPath:(NSString *) path
++ (BOOL)createEmptyFileAtPath:(NSString *)path
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:path]) {
@@ -74,12 +74,12 @@
     return NO;
 }
 
-+ (BOOL) moveFileAtPath:(NSString *)path toPath:(NSString *)newPath error:(NSError **)error
++ (BOOL)moveFileAtPath:(NSString *)path toPath:(NSString *)newPath error:(NSError **)error
 {
     return [self moveFileAtPath:path toPath:newPath shouldOverwrite:NO error:error];
 }
 
-+ (BOOL) moveFileAtPath:(NSString *)path toPath:(NSString *)newPath shouldOverwrite:(BOOL)overwrite error:(NSError **)error
++ (BOOL)moveFileAtPath:(NSString *)path toPath:(NSString *)newPath shouldOverwrite:(BOOL)overwrite error:(NSError **)error
 {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *fileError = nil;
@@ -100,12 +100,12 @@
     return NO;
 }
 
-+ (BOOL) moveFileAtPathURL:(NSURL *)path toPathURL:(NSURL *)newPath error:(NSError **)error
++ (BOOL)moveFileAtPathURL:(NSURL *)path toPathURL:(NSURL *)newPath error:(NSError **)error
 {
     return [self moveFileAtPathURL:path toPathURL:newPath shouldOverwrite:NO error:error];
 }
 
-+ (BOOL) moveFileAtPathURL:(NSURL *)path toPathURL:(NSURL *)newPath shouldOverwrite:(BOOL)overwrite error:(NSError **)error
++ (BOOL)moveFileAtPathURL:(NSURL *)path toPathURL:(NSURL *)newPath shouldOverwrite:(BOOL)overwrite error:(NSError **)error
 {
     return [self moveFileAtPath:[path path] toPath:[newPath path] shouldOverwrite:overwrite error:error];
 }
@@ -172,7 +172,7 @@
     return NO;
 }
 
-+ (NSData *) contentsAtPath:(NSString *)path
++ (NSData *)contentsAtPath:(NSString *)path
 {
     NSData *data = [[NSFileManager defaultManager] contentsAtPath:path];
     return data;

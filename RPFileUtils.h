@@ -10,12 +10,12 @@
 
 @interface RPFileUtils : NSObject
 
-+ (NSString *) cacheDirectoryPath;
++ (NSString *)cacheDirectoryPath;
 + (NSString *)documentDirectoryPath;
-+ (NSURL *) documentDirectoryPathURL;
++ (NSURL *)documentDirectoryPathURL;
 + (NSString *)bundlePath;
 + (NSString *)resourcePath;
-+ (NSURL *) resourcePathURL;
++ (NSURL *)resourcePathURL;
 + (NSString *)temporaryPath;
 + (NSURL *)temporaryPathURL;
 + (BOOL)createEmptyFileAtPath:(NSString *)path;
