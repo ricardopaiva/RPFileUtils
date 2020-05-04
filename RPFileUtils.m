@@ -14,7 +14,7 @@
 {
     NSArray *cachesArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *cacheDirectory = [cachesArray lastObject];
-    
+
     return cacheDirectory;
 }
 
@@ -22,7 +22,7 @@
 {
     NSArray *docArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *docDirectory = [docArray lastObject];
-    
+
     return docDirectory;
 }
 
@@ -210,11 +210,11 @@
 + (NSString *)encodeString:(NSString *)string
 {
     NSString *newString = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (__bridge CFStringRef)string, CFSTR("çÇãÃõÕáÁéÉíÍóÓúÚàÀèÈìÌòÒùÙâÂêÊîÎôÔûÛ"), CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"), CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
-    
+
     if (newString) {
         return newString;
     }
-    
+
     return @"";
 }
 
